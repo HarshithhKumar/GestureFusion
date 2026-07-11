@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GestureFusion — Demo Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:24px}
+    .hero{display:flex;gap:16px;align-items:center}
+    .chart{max-width:800px}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <img src="../assets/logo.svg" alt="logo" width="84" />
+    <div>
+      <h1>GestureFusion — Live Demo</h1>
+      <p>Simple in-browser visualization of sample sensor data.</p>
+    </div>
+  </div>
+
+  <canvas id="sensorChart" class="chart" width="800" height="320"></canvas>
+
+  <script>
+    // synthetic data for the demo
+    const n = 100;
+    const labels = Array.from({length:n},(_,i)=>i);
+    const accx = labels.map(i=>Math.sin(i/10)+0.1*(Math.random()-0.5));
+    const accy = labels.map(i=>Math.cos(i/10)+0.1*(Math.random()-0.5));
+
+    const ctx = document.getElementById('sensorChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {label:'acc_x',data:accx,borderColor:'#1f77b4',fill:false},
+          {label:'acc_y',data:accy,borderColor:'#ff7f0e',fill:false}
+        ]
+      },
+      options:{responsive:true,scales:{x:{display:false}}}
+    });
+  </script>
+</body>
+</html>
