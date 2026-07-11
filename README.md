@@ -1,6 +1,17 @@
 # GestureFusion
 
-GestureFusion is a full-stack gesture-interaction prototype that combines embedded sensing, signal processing, and machine learning into a single demonstrable workflow. The project is designed to show how motion data from an ESP32 device can be transformed into meaningful gesture predictions and visualized in a simple dashboard.
+A compact end-to-end gesture-interaction prototype combining ESP32 sensing, MATLAB signal processing, and a Python machine-learning pipeline for gesture classification and visualization.
+
+[Project homepage](https://github.com/HarshithhKumar/GestureFusion) · Topics: gesture-recognition · embedded-music · esp32 · signal-processing · machine-learning
+
+<!-- Repository metadata (use these to populate the GitHub "About" panel) -->
+**Suggested GitHub About**
+
+- **Description:** End-to-end gesture-interaction prototype combining ESP32 sensors, MATLAB processing, and Python ML training.
+- **Website:** https://your-website.example.com
+- **Topics:** gesture-recognition, embedded-music, esp32, signal-processing, machine-learning, demo
+
+To update the repository About panel on GitHub you can copy the above text into the repository settings, or run the `gh` CLI commands shown in `.github/REPO_METADATA.md`.
 
 ## Project overview
 
