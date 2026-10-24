@@ -1,77 +1,91 @@
 # GestureFusion
 
-A compact end-to-end gesture-interaction prototype combining ESP32 sensing, MATLAB signal processing, and a Python machine-learning pipeline for gesture classification and visualization.
+<p align="center">
+  <strong>Gesture interaction across embedded sensing, signal processing, and machine learning</strong><br/>
+  An exploratory ESP32 + MATLAB + Python prototype.
+</p>
 
-[Repository](https://github.com/HarshithhKumar/GestureFusion) · Topics: gesture-recognition · embedded-music · esp32 · signal-processing · machine-learning
+<p align="center">
+  <a href="https://github.com/HarshithhKumar/GestureFusion/actions/workflows/ci.yml"><img src="https://github.com/HarshithhKumar/GestureFusion/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <img src="https://img.shields.io/badge/ESP32-Embedded%20Systems-E7352C?style=flat" alt="ESP32">
+  <img src="https://img.shields.io/badge/MATLAB-Signal%20Processing-0076A8?style=flat" alt="MATLAB">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/scikit--learn-ML-F7931E?style=flat&logo=scikitlearn&logoColor=white" alt="scikit-learn">
+</p>
 
-## Project overview
+GestureFusion explores how motion input can move from a sensor to a software classifier. The repository brings together embedded sensing concepts, MATLAB signal-processing materials, and a Python training workflow.
 
-This repository brings together three layers of the system:
+> **Current status:** The Python training pipeline uses synthetic data. Its metrics validate the workflow, not real-world gesture-recognition accuracy.
 
-- Embedded sensing: ESP32 firmware for collecting accelerometer and motion data.
-- Signal processing: MATLAB-based preprocessing and feature extraction.
-- Machine learning: Python training pipeline for gesture classification and model evaluation.
+## System overview
 
-## Why this project stands out
+```mermaid
+flowchart LR
+  A[ESP32 motion sensing] --> B[Sensor recordings]
+  B --> C[MATLAB preprocessing and features]
+  C --> D[Python training pipeline]
+  D --> E[Random Forest model]
+  E --> F[Metrics and demo artifacts]
+```
 
-- End-to-end prototype spanning hardware, software, and analytics.
-- Reproducible Python training workflow with saved model artifacts.
-- Clean package structure suitable for demo presentations and resumes.
-- Extensible for future work in real-time inference, audio synthesis, or interactive dashboards.
+The stages describe the intended integration path; the synthetic training workflow currently allows the ML portion to be exercised independently of a real recorded dataset.
 
-## Repository structure
+## What's included
 
-- [hardware/](hardware/): ESP32 firmware and hardware notes.
-- [matlab/](matlab/): MATLAB processing and feature-extraction scripts.
-- [src/gesturefusion/](src/gesturefusion/): Python package for data utilities and experiment helpers.
-- [notebooks/](notebooks/): Interactive demo notebook.
-- [dashboard/](dashboard/): Static visualization page for sensor data.
-- [assets/](assets/): Project assets and illustrations.
+- **Hardware:** ESP32 firmware and notes in [hardware/](hardware/).
+- **Signal processing:** MATLAB scripts and feature-extraction materials in [matlab/](matlab/).
+- **Python package:** data utilities and experiment helpers in [src/gesturefusion/](src/gesturefusion/).
+- **Training:** synthetic-data generation, train/test split, Random Forest classification, and saved artifacts.
+- **Exploration:** a static dashboard and notebook walkthrough.
 
 ## Quick start
 
-### 1. Clone and install dependencies
+Requirements: Python and pip.
 
 ```bash
+git clone https://github.com/HarshithhKumar/GestureFusion.git
+cd GestureFusion
 pip install -r requirements.txt
-```
-
-### 2. Run the training pipeline
-
-```bash
 python train.py
-```
-
-This creates a simple model artifact and metrics report in the [artifacts/](artifacts/) folder.
-
-### 3. Run the tests
-
-```bash
 pytest -q
 ```
 
-### 4. Explore the demo materials
+The training workflow writes a model artifact and metrics report to [artifacts/](artifacts/).
 
-- Open [dashboard/index.html](dashboard/index.html) for a lightweight visualization.
-- Open [notebooks/GestureFusion_demo.ipynb](notebooks/GestureFusion_demo.ipynb) for a notebook walkthrough.
+Explore the demo materials:
 
-## Machine learning workflow
+- [Dashboard](dashboard/index.html)
+- [Notebook walkthrough](notebooks/GestureFusion_demo.ipynb)
 
-The current training pipeline uses a **synthetic gesture dataset only**. Its reported metrics are useful for testing the workflow, but do not demonstrate real-world gesture-recognition accuracy. The workflow:
+## Repository layout
 
-1. Generate a synthetic dataset.
-2. Split into train and test sets.
+```text
+hardware/             ESP32 firmware and hardware notes
+matlab/               Signal processing and feature extraction
+src/gesturefusion/    Python utilities and experiment helpers
+notebooks/            Demo notebook
+dashboard/            Static sensor-data visualization
+assets/               Project visuals
+artifacts/             Generated model and metrics
+tests/                Automated tests
+```
+
+## Training workflow
+
+1. Generate a synthetic gesture dataset.
+2. Split the data into training and test sets.
 3. Train a Random Forest classifier.
-4. Save model weights and metrics.
+4. Save the model and evaluation metrics.
 
-## Future enhancements
+Because the input data is synthetic, high test scores would not establish performance on actual hand or body gestures. A meaningful next milestone is to record real sensor sequences, document the feature pipeline, and evaluate on a held-out set of recordings.
 
-Potential next steps for making the project even more impressive include:
+## Next steps
 
-- A sample results section with charts and confusion matrices.
-- A polished logo or hero section in the README.
-- A live dashboard for real-time visualization.
+- Add a documented real-sensor dataset and reproducible recording instructions.
+- Report class-level metrics and a confusion matrix on held-out recordings.
+- Connect live sensor capture to inference once the data pipeline is validated.
+- Explore real-time interaction or audio/MIDI output after establishing a reliable baseline.
 
 ## License
 
-This project is intended for educational and demonstration purposes.
+Educational and portfolio demonstration project.
