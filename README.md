@@ -2,16 +2,7 @@
 
 A compact end-to-end gesture-interaction prototype combining ESP32 sensing, MATLAB signal processing, and a Python machine-learning pipeline for gesture classification and visualization.
 
-[Project homepage](https://github.com/HarshithhKumar/GestureFusion) · Topics: gesture-recognition · embedded-music · esp32 · signal-processing · machine-learning
-
-<!-- Repository metadata (use these to populate the GitHub "About" panel) -->
-**Suggested GitHub About**
-
-- **Description:** End-to-end gesture-interaction prototype combining ESP32 sensors, MATLAB processing, and Python ML training.
-- **Website:** https://your-website.example.com
-- **Topics:** gesture-recognition, embedded-music, esp32, signal-processing, machine-learning, demo
-
-To update the repository About panel on GitHub you can copy the above text into the repository settings, or run the `gh` CLI commands shown in `.github/REPO_METADATA.md`.
+[Repository](https://github.com/HarshithhKumar/GestureFusion) · Topics: gesture-recognition · embedded-music · esp32 · signal-processing · machine-learning
 
 ## Project overview
 
@@ -66,7 +57,7 @@ pytest -q
 
 ## Machine learning workflow
 
-The training pipeline uses a synthetic gesture dataset to demonstrate a realistic model lifecycle:
+The current training pipeline uses a **synthetic gesture dataset only**. Its reported metrics are useful for testing the workflow, but do not demonstrate real-world gesture-recognition accuracy. The workflow:
 
 1. Generate a synthetic dataset.
 2. Split into train and test sets.
@@ -79,7 +70,6 @@ Potential next steps for making the project even more impressive include:
 
 - A sample results section with charts and confusion matrices.
 - A polished logo or hero section in the README.
-- A notebook version of the training workflow.
 - A live dashboard for real-time visualization.
 
 ## License
